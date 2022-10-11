@@ -48,9 +48,6 @@ jobs:
       - name: Build
         run: |
           npm run build
-      - name: Stage
-        run: |
-          npm run stage
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
