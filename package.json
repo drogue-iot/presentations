@@ -29,6 +29,7 @@
     "@asciidoctor/core": "^2.2.6",
     "@asciidoctor/reveal.js": "^5.0.0-rc.1",
     "node-sass": "^7.0.3",
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "reveal.js": "^4.3"
   }
 }
