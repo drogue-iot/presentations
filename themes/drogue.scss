@@ -84,6 +84,10 @@ $titleBackground: $drogueYellowDarker;
   outline: none;
 }
 
+.reveal .slide-content a {
+  text-decoration: var(--r-link-color-hover) underline;
+}
+
 .reveal section,
 .reveal section.yellow {
   --r-selection-background-color: #{$drogueYellow};
@@ -108,7 +112,6 @@ $titleBackground: $drogueYellowDarker;
 .reveal h2,
 .reveal section.yellow h2
 {
-  color: black;
   background: $drogueYellowDarker;
   outline: 1rem solid $drogueYellowDarker;
 }
