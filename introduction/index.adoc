@@ -1,37 +1,192 @@
-= Drogue IoT
+= Drogue IoT: An introduction
 :icons: font
 :imagesdir: images
 :source-highlighter: highlightjs
 :revealjsdir: revealjs
-:revealjs_disablelayout: true
-:revealjs_display: flex
+:revealjs_center: false
 :revealjs_history: true
 :revealjs_customtheme: themes/drogue.css
 :highlightjs-languages: rust, yaml, json
 :highlightjsdir: highlightjs
 
+[.columns]
 == What is Drogue IoT?
 
-* An open source project
-** Licensed under APL-2
-** Sponsored by Red Hat
-* Two major projects
-** Drogue Device
-** Drogue Cloud
+[.column]
+--
+**An open source project**
 
-[%notitle]
-== No Title
+* Licensed under Apache-2
+* Sponsored by Red Hat
+--
 
-Just text.
+[.column]
+--
+**Two main parts**
+
+* Drogue Device
+* Drogue Cloud
+--
+
+=== Drogue Device
+
+* Actor based firmware for microcontrollers
+* Written in Rust
+* Provides common required components and services
+* Based on a lot of components from the Embedded Rust ecosystem
+
+=== Drogue Cloud
+
+* IoT friendly APIs for the cloud
+* Common required IoT services
+* Connect any IoT device with custom backend applications
+* Programming language agnostic
+
+=== Drogue Edge?
+
+We don't provide an edge infrastructure.
+
+We leverage projects like Microshift and Open Cluster Management instead to deploy our workload.
+
+We do provide workload for the edge, which makes it easier to work with the cloud and devices.
+
+[.center]
+=== Better together
+
+Drogue Device and Drogue Cloud work great together…
+
+[.text-right]
+…but can also be used in independently!
+
+[.blue]
+== Drogue Device
+
+Actor based firmware for microcontrollers, written in Rust.
+
+[.blue.columns]
+=== What is a microcontroller?
+
+[.column]
+--
+* KiBs of RAM and storage
+* No operating system
+* No memory management
+* Cheap
+--
+
+[.column]
+--
+image:microcontroller.jpg[]
+--
+
+[.blue.smaller]
+=== What it provides
+
+* Aggregation of components from the Embedded Rust ecosystem
+** Embassy: Async scheduler
+** Ector: Actor based framework
+* Hardware abstractions
+** STM32, nRF, Raspberry Pi Pico
+* Drivers
+
+[.blue]
+=== Built on top
+
+* Firmware update
+* Communication
+** TCP, HTTP
+** Bluetooth Mesh
+
+[.blue.text-center]
+=== Architecture
+
+image:device_arch.png[]
+
+[.red]
+== Drogue Cloud
+
+IoT friendly APIs and services for the cloud.
+
+Connecting your devices with applications. Solving common IoT tasks in the middle.
+
+[.red]
+=== What it provides
+
+* Device registry
+* IoT connectivity
+* Digital twin
+* On-top services
+* Scalability
+
+[.red]
+=== Device registry
+
+* Manage millions of devices
+* Handle credentials & configuration
+* APIs and change events to integrate with others
+** Build operators to propagate changes
+** Or leverage existing ones
+
+[.red]
+=== IoT connectivity
+
+* Device endpoints: MQTT, HTTP, CoAP
+* Protocol normalization
+** Payload agnostic events, based on Cloud Events
+** Basic preprocessing
+** Telemetry, Command & Control
+* Make available on the cloud side using: WebSocket, Kafka, MQTT, Knative eventing
+
+[.red]
+=== Digital twin
+
+It is an optional feature, built in top of the IoT connectivity layer, providing:
+
+* Data normalization
+** Structure data, post-process, evaluate
+** Reconcile device state
+* APIs
+** WebSocket & REST
+** OPC UA
+
+[.red]
+=== On-top services
+
+* Firmware updates
+
+[.red]
+=== Getting started
+
+We have a public sandbox: link:https://sandbox.drogue.cloud[]
+
+Or try a local deployment.
+
+[.columns.smaller]
+== Links
+
+[.column]
+--
+**Project**
+
+* link:https://drogue.io[]
+* link:https://blog.drogue.io[]
+* link:https://book.drogue.io[]
+* link:https://github.com/drogue-iot[]
+--
+
+[.column]
+--
+**Contact**
+
+* link:https://twitter.com/DrogueIoT[@DrogueIoT]
+* link:https://matrix.to/#/#drogue-iot:matrix.org[#drogue-iot:matrix.org]
+
+**Getting started**
+
+* link:https://sandbox.drogue.cloud[]
+--
 
 [.full]
-== Just title
+== Thank you!
 
-== Some Code
-
-[source,rust]
-----
-fn main() {
-    println!("Hello World!");
-}
-----
+Questions?
