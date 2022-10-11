@@ -1,0 +1,23 @@
+= Drogue IoT: A collection of presentations
+:icons: font
+:imagesdir: images
+:source-highlighter: highlightjs
+:revealjsdir: revealjs
+:revealjs_center: false
+:revealjs_history: true
+:revealjs_customtheme: themes/drogue.css
+:highlightjs-languages: rust, yaml, json
+:highlightjsdir: highlightjs
+
+== Presentations
+
+The following slides will list the different presentations available around Drogue IoT.
+
+Clicking on the links will take you to them.
+
+== Drogue IoT: Introduction
+
+An introduction to Drogue IoT.
+
+link:introduction/[Start presentation,role=external,window=_blank]
+

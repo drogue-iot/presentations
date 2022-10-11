@@ -5,7 +5,7 @@ asciidoctorRevealjs.register()
 const fs = require("fs");
 const fse = require("fs-extra");
 
-const presentations = ["template-test", "introduction"];
+const presentations = ["index", "template-test", "introduction"];
 
 function copyOptionally(src, dest) {
     if (fs.existsSync(src)) {
