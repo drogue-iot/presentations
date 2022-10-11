@@ -30,7 +30,7 @@
 
 === Drogue Device
 
-* Actor based firmware for microcontrollers
+* Distribution of libraries and examples for building embedded IoT applications.
 * Written in Rust
 * Provides common required components and services
 * Based on a lot of components from the Embedded Rust ecosystem
@@ -61,7 +61,7 @@ Drogue Device and Drogue Cloud work great together…
 [.blue]
 == Drogue Device
 
-Actor based firmware for microcontrollers, written in Rust.
+Distribution of tools and examples for building embedded IoT applications.
 
 [.blue.columns]
 === What is a microcontroller?
@@ -82,12 +82,13 @@ image:microcontroller.jpg[]
 [.blue.smaller]
 === What it provides
 
-* Aggregation of components from the Embedded Rust ecosystem
-** Embassy: Async scheduler
-** Ector: Actor based framework
-* Hardware abstractions
-** STM32, nRF, Raspberry Pi Pico
-* Drivers
+* Components from the Embedded Rust ecosystem
+** Embassy: Scheduler, hardware abstractions, time-keeping
+** Board Support Packages (BSP) for selected boards
+** Examples
+
+* Hardware support
+** STM32, nRF, Raspberry Pi Pico, ESP-32
 
 [.blue]
 === Built on top
@@ -96,6 +97,8 @@ image:microcontroller.jpg[]
 * Communication
 ** TCP, HTTP
 ** Bluetooth Mesh
+** Bluetooth Low Energy
+** LoRaWAN
 
 [.blue.text-center]
 === Architecture
