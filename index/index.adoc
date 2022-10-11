@@ -19,5 +19,12 @@ Clicking on the links will take you to them.
 
 An introduction to Drogue IoT.
 
+[.text-right]
 link:introduction/[Start presentation,role=external,window=_blank]
 
+== Template example
+
+Test and explain the Drogue IoT template.
+
+[.text-right]
+link:template-test/[Start presentation,role=external,window=_blank]

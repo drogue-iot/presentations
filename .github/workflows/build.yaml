@@ -48,6 +48,9 @@ jobs:
       - name: Build
         run: |
           npm run build
+      - name: Entry point
+        run: |
+          cp -av staging/index/. staging/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
