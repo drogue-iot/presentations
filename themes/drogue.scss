@@ -15,19 +15,21 @@ $drogueBlueDarker: #046dba;
 
 $drogueGray: #5d5e61;
 
-// theme colors
+// theme settings
 
 $backgroundColor: #eeeeee;
 $mainColor: #5d5e61;
 $headingColor: #fff;
 
-$mainFontSize: 42px;
+$mainFontSize: 38px;
 $mainFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
-$linkColor: #5d5e61;
 
 // default selection color
 $selectionBackgroundColor: $drogueYellow;
+
+// controls are the same as links
+$linkColor: $drogueGray;
 
 $headerBarHeight: 200px;
 
@@ -82,21 +84,25 @@ $titleBackground: $drogueYellowDarker;
   outline: none;
 }
 
+.reveal section,
 .reveal section.yellow {
-  --r-selection-background-color: $drogueYellow;
+  --r-selection-background-color: #{$drogueYellow};
+  --r-link-color-hover: #{$drogueYellowDarker};
 }
 .reveal section.red {
   --r-selection-background-color: $drogueRed;
+  --r-link-color-hover: #{$drogueRedDarker};
 }
 .reveal section.blue {
   --r-selection-background-color: $drogueBlue;
+  --r-link-color-hover: #{$drogueBlueDarker};
 }
 .reveal section h2 {
-  --r-selection-background-color: $drogueGray;
+  --r-selection-background-color: #{$drogueGray};
 }
 .reveal section.title h2 {
   // reset the h2 of the title slide
-  --r-selection-background-color: $selectionBackgroundColor;
+  --r-selection-background-color: #{$selectionBackgroundColor};
 }
 
 .reveal h2,
@@ -144,6 +150,10 @@ $titleBackground: $drogueYellowDarker;
   margin-top: -30px;
   font-style: italic;
   font-size: smaller;
+}
+
+.reveal section.smaller div.slide-content {
+  font-size: 80%;
 }
 
 // Theme template ------------------------------
