@@ -74,7 +74,7 @@ being the default.
 [.red]
 === Red
 
-But this is red.
+But this is red. link:https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy[Follow me].
 
 [quote, CSS Values and Units Module Level 3, 5. Distance Units: the &lt;length&gt; type]
 Looking up into the night sky is looking into infinity—distance is incomprehensible and therefore meaningless.
@@ -82,7 +82,15 @@ Looking up into the night sky is looking into infinity—distance is incomprehen
 [.blue]
 === Blue
 
-And this is blue.
+And this is blue. link:https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy[Follow me].
+
+[quote, How-to CSS, 1024 easy steps to center text vertically]
+Would it save you a lot of time if I just gave up and went mad now?
+
+[.yellow]
+=== Yellow
+
+Or explicitly choose yellow. link:https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy[Follow me].
 
 [quote, How-to CSS, 1024 easy steps to center text vertically]
 Would it save you a lot of time if I just gave up and went mad now?
