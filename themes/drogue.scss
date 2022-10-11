@@ -1,0 +1,173 @@
+@import "../node_modules/reveal.js/css/theme/template/mixins";
+@import "../node_modules/reveal.js/css/theme/template/settings";
+
+@import url("../revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro.css");
+
+// drogue colors
+$drogueYellow: #ffda00;
+$drogueRed: #ef1920;
+$drogueBlue: #0072d8;
+$drogueGreen: #8cc73f;
+
+$drogueYellowDarker: #e5c10e;
+$drogueRedDarker: #cc1b28;
+$drogueBlueDarker: #046dba;
+
+$drogueGray: #5d5e61;
+
+// theme colors
+
+$backgroundColor: #eeeeee;
+$mainColor: #5d5e61;
+$headingColor: #fff;
+
+$mainFontSize: 42px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$linkColor: #5d5e61;
+
+// default selection color
+$selectionBackgroundColor: $drogueYellow;
+
+$headerBarHeight: 200px;
+
+$heading1Size: 2.7em;
+$heading2Size: 1.7em;
+
+$titleBackground: $drogueYellowDarker;
+
+.reveal .slide-background.title,
+.reveal .slide-background.full {
+  background: $drogueGreen url("../assets/drogueiot_rodney_blink.gif") no-repeat;
+  background-position-x: -10rem;
+  background-position-y: bottom;
+  background-size: 40%;
+}
+
+.reveal section.title {
+  padding-left: 10rem;
+  padding-top: 10rem;
+}
+
+.reveal section.full {
+  padding-left: 10rem;
+  padding-top: 10rem;
+}
+
+.reveal .full h2 {
+  font-size: $heading1Size;
+}
+
+// slide content of full slide is like h2 on the title slide
+.reveal .full .slide-content {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+
+  font-size: var(--r-heading2-size);
+
+  word-wrap: break-word;
+}
+
+.reveal .title h2,
+.reveal .full h2 {
+  background: none;
+  outline: none;
+}
+
+.reveal section.yellow {
+  --r-selection-background-color: $drogueYellow;
+}
+.reveal section.red {
+  --r-selection-background-color: $drogueRed;
+}
+.reveal section.blue {
+  --r-selection-background-color: $drogueBlue;
+}
+.reveal section h2 {
+  --r-selection-background-color: $drogueGray;
+}
+.reveal section.title h2 {
+  // reset the h2 of the title slide
+  --r-selection-background-color: $selectionBackgroundColor;
+}
+
+.reveal h2,
+.reveal section.yellow h2
+{
+  color: black;
+  background: $drogueYellowDarker;
+  outline: 1rem solid $drogueYellowDarker;
+}
+
+.reveal section.red h2 {
+  background: $drogueRedDarker;
+  outline: 1rem solid $drogueRedDarker;
+}
+
+.reveal section.blue h2 {
+  background: $drogueBlueDarker;
+  outline: 1rem solid $drogueBlueDarker;
+}
+
+.reveal .slide-content {
+  padding-top: 1rem;
+}
+
+.reveal .slides section {
+  text-align: start;
+}
+
+.reveal .attribution {
+  text-align: end;
+  padding-right: 5rem;
+  font-size: smaller;
+}
+.reveal .attribution cite {
+  font-style: italic;
+}
+
+.reveal .listingblock .title {
+  margin-left: 50px;
+  font-style: italic;
+  font-size: smaller;
+}
+
+.reveal .imageblock + .title {
+  margin-top: -30px;
+  font-style: italic;
+  font-size: smaller;
+}
+
+// Theme template ------------------------------
+@import "../node_modules/reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+
+.reveal blockquote {
+  margin-left: 4rem;
+  border: none;
+  border-left: 10px solid;
+  padding: 2rem 4rem;
+  background: #ccc;
+  box-shadow: none;
+}
+
+.reveal blockquote,
+.reveal section.yellow blockquote {
+  border-color: $drogueYellow;
+}
+
+.reveal section.red blockquote {
+  border-color: $drogueRed;
+}
+
+.reveal section.blue blockquote {
+  border-color: $drogueBlue;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "drogue-iot-presentations",
+  "version": "1.0.0",
+  "description": "Drogue IoT presentations",
+  "scripts": {
+    "clean": "rm -Rf staging build",
+    "build:theme": "mkdir -p build/themes && npx node-sass themes/drogue.scss build/themes/drogue.css",
+    "build": "npm run clean && npm run build:theme && node build.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/drogue-iot/presentations.git"
+  },
+  "contributors": [
+    "Ulf Lilleengen",
+    "Jens Reimann <ctron@dentrassi.de> (https://dentrassi.de)"
+  ],
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/drogue-iot/presentations/issues"
+  },
+  "homepage": "https://github.com/drogue-iot/presentations#readme",
+  "private": true,
+  "dependencies": {
+    "@highlightjs/cdn-assets": "^11.6.0"
+  },
+  "devDependencies": {
+    "@asciidoctor/core": "^2.2.6",
+    "@asciidoctor/reveal.js": "^5.0.0-rc.1",
+    "node-sass": "^7.0.3",
+    "fs-extra": "^10.1.0"
+  }
+}

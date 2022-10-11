@@ -1,0 +1,37 @@
+= Drogue IoT
+:icons: font
+:imagesdir: images
+:source-highlighter: highlightjs
+:revealjsdir: revealjs
+:revealjs_disablelayout: true
+:revealjs_display: flex
+:revealjs_history: true
+:revealjs_customtheme: themes/drogue.css
+:highlightjs-languages: rust, yaml, json
+:highlightjsdir: highlightjs
+
+== What is Drogue IoT?
+
+* An open source project
+** Licensed under APL-2
+** Sponsored by Red Hat
+* Two major projects
+** Drogue Device
+** Drogue Cloud
+
+[%notitle]
+== No Title
+
+Just text.
+
+[.full]
+== Just title
+
+== Some Code
+
+[source,rust]
+----
+fn main() {
+    println!("Hello World!");
+}
+----

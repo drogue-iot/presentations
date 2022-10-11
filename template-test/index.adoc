@@ -1,0 +1,128 @@
+= Drogue IoT: Testing the template
+:icons: font
+:imagesdir: images
+:source-highlighter: highlightjs
+:revealjsdir: revealjs
+:revealjs_center: false
+:revealjs_history: true
+:revealjs_customtheme: themes/drogue.css
+:highlightjs-languages: rust, yaml, json
+:highlightjsdir: highlightjs
+
+== Standard slide
+
+Here come a few standard slides.
+
+You need to navigate down.
+
+=== List
+
+* Having some bullet points
+* And no real content
+* Other than testing the template
+
+=== Text and list
+
+This time with some text:
+
+* Having some bullet points
+* And no real content
+* Other than testing the template
+
+=== Quote
+
+[quote, JavaScript, The ultimate language specification]
+We demand rigidly defined areas of doubt and uncertainty!
+
+[.center]
+=== Quote (centered)
+
+[quote, JavaScript, The ultimate language specification]
+We demand rigidly defined areas of doubt and uncertainty!
+
+=== Code
+
+Just some code:
+
+.Rust code
+[source,rust]
+----
+fn main() {
+    println!("Rust is awesome!");
+}
+----
+
+=== Image
+
+image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat]
+
+=== Image (caption)
+
+.Cat picture (50%)
+image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat,50%]
+
+[%notitle]
+=== Image (no-title)
+
+image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat]
+
+== Colors
+
+It is possible to themes slides in the different Drogue colors (yellow, red, blue), yellow
+being the default.
+
+[.red]
+=== Red
+
+But this is red.
+
+[quote, CSS Values and Units Module Level 3, 5. Distance Units: the &lt;length&gt; type]
+Looking up into the night sky is looking into infinity—distance is incomprehensible and therefore meaningless.
+
+[.blue]
+=== Blue
+
+And this is blue.
+
+[quote, How-to CSS, 1024 easy steps to center text vertically]
+Would it save you a lot of time if I just gave up and went mad now?
+
+== Layouts
+
+Keep in mind …
+
+// we need to use role="center" here, as `.center` doesn't seem to work in combination
+// with %notitle
+[%notitle,role="center"]
+=== Less is more
+
+> … less is more
+
+[.full]
+=== Booyah!
+
+[.full]
+=== Booyah!
+
+With a subtitle
+
+[%notitle]
+=== No title
+
+And a slide without a title.
+
+[.center]
+=== Center
+
+By default, text is aligned to the top of the slide. But you can also center it:
+
+1. Rust
+2. Rust
+3. Rust
+
+Yes, this will also center the heading.
+
+[.full]
+== Thank you!
+
+Questions?
