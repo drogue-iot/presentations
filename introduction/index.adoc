@@ -124,7 +124,7 @@ Connecting your devices with applications. Solving common IoT tasks in the middl
 * Device registry
 * IoT connectivity
 * Digital twin
-* On-top services
+* Firmware Updates
 * Scalability
 
 [.red]
@@ -159,7 +159,7 @@ It is an optional feature, built on top of the IoT connectivity layer, providing
 ** OPC UA
 
 [.red]
-=== Over The Air (OTA) updates
+=== Firmware updates
 
 Optional feature, built on top of the IoT connectivity layer and device registry:
 
