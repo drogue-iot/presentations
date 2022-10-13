@@ -159,9 +159,18 @@ It is an optional feature, built on top of the IoT connectivity layer, providing
 ** OPC UA
 
 [.red]
-=== On-top services
+=== Over The Air (OTA) updates
 
-* Firmware updates
+It is an optional feature, built on top of the IoT connectivity layer and device registry:
+
+* Firmware delivery
+** Built-in firmware management using container registries
+** External firmware providers like Eclipse Hawkbit
+** Lightweight OTA protocol supported by all device endpoints
+
+* Firmware builds
+** Source 2 Firmware using Tekton pipelines
+** REST API for triggering and monitoring builds
 
 [.red]
 === Getting started
