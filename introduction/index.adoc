@@ -149,7 +149,7 @@ Connecting your devices with applications. Solving common IoT tasks in the middl
 [.red]
 === Digital twin
 
-It is an optional feature, built in top of the IoT connectivity layer, providing:
+It is an optional feature, built on top of the IoT connectivity layer, providing:
 
 * Data normalization
 ** Structure data, post-process, evaluate
