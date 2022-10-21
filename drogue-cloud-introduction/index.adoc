@@ -1,0 +1,368 @@
+= Drogue IoT: The cloud side of things.
+:icons: font
+:experimental: true
+:revealjsdir: revealjs
+:revealjs_center: false
+:revealjs_history: true
+:revealjs_customtheme: themes/drogue.css
+:source-highlighter: highlightjs
+:highlightjs-languages: rust, yaml, json, javascript, java, shell
+:highlightjsdir: highlightjs
+:imagesdir: images
+:commondir: ../common
+
+include::{commondir}/vertical-slides.adoc[]
+
+include::{commondir}/authors/ctron.adoc[]
+
+== Drogue IoT
+
+Drogue Device:: Distribution of libraries and examples for building embedded IoT applications in Rust.
+Drogue Cloud:: IoT friendly APIs and common IoT services for the cloud.
+
+== Drogue Edge?
+
+* We do provide edge workload when necessary
+* We rely on existing projects to run edge workload
+* We do integrate with edge infrastructure to orchestrate workload
+
+[%notitle,role=center]
+== Focus on Drogue Cloud
+
+Today, the focus is on Drogue Cloud.
+
+== The mission
+
+Connect cloud side applications, with far edge devices.
+
+[.center.gutter]
+image::drogue-iot-mission.svg[]
+
+=== How?
+
+By …
+
+* … providing IoT friendly APIs for existing cloud side technologies
+* … offering common, out-of-the box IoT services
+* … integrating existing technologies and services
+
+[.notes]
+--
+* A lot of tools already exists
+* Better align the device side with the cloud side
+* It is easy to re-create things, but better to re-use and extend & integrate
+--
+
+=== Why?
+
+* Creating IoT application is easy, at least in the beginning.
+* In many IoT applications things get re-invented, over and over.
+* Because the value-add comes from building applications, not infrastructure.
+
+=== Why not?
+
+[%step]
+* Just use the cloud stuff?
+[%step]
+** IoT developers don't like it
+[%step]
+** It is not suitable for devices
+[%step]
+* Just use the device stuff?
+[%step]
+** It is just the other way round
+
+=== The Mission (refined)
+
+Make it easy to connect cloud side applications with far edge devices.
+
+[.blue]
+== Key concepts
+
+Let's take a closer look.
+
+[%notitle,role=center]
+=== Diagram
+
+image::drogue-cloud-architecture.svg[role="stretch center"]
+
+[.notes]
+--
+* Devices connect to "endpoints"
+** Those authenticate/authorize using the device registry
+** May do some pre-processing
+** And publish data to Kafka
+* Applications connect to "integrations"
+** Authenticate with OAuth2 or personal access tokens
+** And subscribe to data
+** Getting notified on demand
+--
+
+[.blue]
+=== Events
+
+* Devices and cloud exchange events
+* The protocol doesn't matter, the payload does
+* Events are normalized, payload is not
+[%step]
+** At least on this level
+
+[.blue.columns.smaller]
+=== Event normalization
+
+[.column]
+--
+Messages from devices get normalized on "Cloud Events".
+
+Mix & match: publish as MQTT, consume using WebSocket.
+
+The payload is just forwarded "as is".
+--
+
+[.column.p-x]
+image::logos/cloudevents-icon-color.png[]
+
+[.blue]
+=== Cloud Events
+
+[source,json]
+----
+{
+  "id": "82a16191-53ea-42f8-b5fb-33215a3a4b81",
+  "source": "/drogue/app/device",
+  "subject": "device-state", // <1>
+  "type": "io.drogue.Event.v1", // <2>
+  "datacontenttype": "application/json", // <3>
+  "data": {} // <4>
+}
+----
+<1> A topic, channel, …
+<2> Event type
+<3> Content type
+<4> The actual payload
+
+[%notitle.center.blue.columns]
+=== Cloud Events Mapping
+
+[.column]
+--
+[source,json]
+----
+{
+  "id": "82a16191-53ea-42f8-b5fb-33215a3a4b81",
+  "source": "/drogue/app/device",
+  "subject": "device-state",
+  "type": "io.drogue.Event.v1",
+  "datacontenttype": "application/json",
+  "data": {}
+}
+----
+--
+
+[.column]
+--
+[source,text]
+----
+POST /api/call HTTP/1.1
+ce-specversion: 1.0
+ce-type: io.drogue.Event.v1
+ce-time: 2018-04-05T03:56:24Z
+ce-id: 82a16191-53ea-42f8-b5fb-33215a3a4b81
+ce-source: /drogue/app/device
+ce-subject: device-state
+Content-Type: application/json; charset=utf-8
+
+{
+    ... application data ...
+}
+----
+--
+
+[.blue.columns]
+=== Directions
+
+[.column]
+* *Telemetry*: device-to-cloud, northbound, upstream
+* *Commands*: cloud-to-device, southbound, downstream
+* Telemetry is the dominant direction of data
+
+[.column]
+image::telemetry-vs-commands.svg[height=75%, role="center"]
+
+[.red]
+== Examples
+
+Bring it on!
+
+[.red]
+=== Creating a device
+
+[.stretch.vcenter]
+--
+[source,shell]
+----
+drg create application example-app
+----
+
+[%step]
+[source,shell]
+----
+drg create device --application example-app device1
+----
+
+[%step]
+[source,shell]
+----
+drg set password device1 "SetecAstronomy"
+----
+
+--
+
+[.notes]
+--
+* This is using the `drg` tool
+* But it's just a REST API
+* You could also use `curl` or some other HTTP client
+--
+
+[.red]
+=== Pub/sub
+
+
+[.stretch]
+--
+
+Consume data (application):
+
+[source,shell]
+----
+websocat wss://ws-integration.sandbox.drogue.cloud/example-app \
+    -H="Authorization: Bearer $(drg whoami -t)"
+----
+
+[step=1]
+Publish data (device):
+
+[step=1]
+[source,shell]
+----
+mqtt pub -h mqtt.sandbox.drogue.cloud -p 8883 -s \
+    -u 'device1@example-app' -pw 'SetecAstronomy' \
+    -t temp -m '{"temp":42}'
+----
+
+--
+
+[%notitle.red.center]
+=== Output
+
+[source,json]
+----
+{
+  "specversion": "1.0",
+  "id": "b067ccb3-a5f4-4fa2-b170-44fbd1449138",
+  "type": "io.drogue.event.v1",
+  "source": "drogue://example-app/device1",
+  "datacontenttype": "application/json",
+  "subject": "temp",
+  "time": "2022-10-21T14:39:42.594612049Z",
+  "data": {
+    "temp": 42
+  },
+  "application": "example-app",
+  "senderuid": "fb759dd8-d538-4076-b966-94eab19dfaa2",
+  "instance": "drogue",
+  "applicationuid": "6dd28a93-7eff-4b4d-a60f-6458da5f35c6",
+  "deviceuid": "fb759dd8-d538-4076-b966-94eab19dfaa2",
+  "sender": "device1",
+  "partitionkey": "example%2Dapp/device1",
+  "device": "device1"
+}
+----
+
+[.red]
+=== What did we see?
+
+* Programmatic device management
+* Resources managed (Kafka, credentials, endpoints, …)
+* Transport protocol conversion (MQTT -> WebSocket)
+* Event streaming
+
+[.red.columns]
+=== What we did not see
+
+[.column]
+--
+image::sandbox0.png[]
+image::sandbox1.png[]
+--
+[.column]
+--
+image::sandbox2.png[]
+image::sandbox3.png[]
+--
+
+[.red]
+=== There is more
+
+* Event pre-processing
+* Gateway concept
+* Change events from the device registry
+* …
+
+[.red]
+=== Change events
+
+* When device configurations are created, changed, delete events get fired
+* You can act on them, operator style
+
+[.red]
+=== For example
+
+* Provision a new device in another system
+  ** When a new devices get created, it is also created in The Things Network
+* Synchronize configuration between systems
+  ** Kubernetes workload gets configured on a device
+  ** Will be synchronized to ACM{empty}footnote:[Advanced Cluster Manager] for provisioning on the edge device
+
+== Onwards
+
+This is the core of Drogue Cloud. Providing IoT connectivity.
+
+And with that, we can build more.
+
+=== Firmware Updates (OTA)
+
+*Drogue Ajour*
+
+* Trigger firmware updates
+* Protocol between cloud and device
+* Out of the box implementation for Drogue Device
+* Requires an orchestrator
+** Eclipse hawkBit
+** OCI compatible container registries
+
+[.columns]
+=== Digital twin
+
+[.column]
+--
+*Drogue Doppelgänger*
+
+* Normalize Data
+* Data processing
+** Synthetic/calculated values
+** Triggers & timers
+** References between "things"
+--
+
+[.column]
+--
++++ +++
+
+* API (REST and WebSocket)
+* Processing in JavaScript
+* OPC UA server of "things"
+--
+
+include::{commondir}/links.adoc[]

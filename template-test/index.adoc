@@ -66,6 +66,11 @@ image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat,50%]
 
 image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat]
 
+=== Footnotes
+
+* Sometimes footnotes come in handy{empty}footnote:[Just not always]
+* Just don't over-use them
+
 == Colors
 
 It is possible to themes slides in the different Drogue colors (yellow, red, blue), yellow

@@ -15,6 +15,24 @@ $drogueBlueDarker: #046dba;
 
 $drogueGray: #5d5e61;
 
+// variables
+
+.reveal section,
+.reveal section.yellow {
+  --drogue-accent-color: #{$drogueYellow};
+  --drogue-background-color: #{$drogueYellowDarker};
+}
+
+.reveal section.red {
+  --drogue-accent-color: #{$drogueRed};
+  --drogue-background-color: #{$drogueRedDarker};
+}
+
+.reveal section.blue {
+  --drogue-accent-color: #{$drogueBlue};
+  --drogue-background-color: #{$drogueBlueDarker};
+}
+
 // theme settings
 
 $backgroundColor: #eeeeee;
@@ -81,7 +99,7 @@ $titleBackground: $drogueYellowDarker;
 .reveal .title h2,
 .reveal .full h2 {
   background: none;
-  outline: none;
+  padding: 0;
 }
 
 .reveal .slide-content a {
@@ -94,11 +112,11 @@ $titleBackground: $drogueYellowDarker;
   --r-link-color-hover: #{$drogueYellowDarker};
 }
 .reveal section.red {
-  --r-selection-background-color: $drogueRed;
+  --r-selection-background-color: #{$drogueRed};
   --r-link-color-hover: #{$drogueRedDarker};
 }
 .reveal section.blue {
-  --r-selection-background-color: $drogueBlue;
+  --r-selection-background-color: #{$drogueBlue};
   --r-link-color-hover: #{$drogueBlueDarker};
 }
 .reveal section h2 {
@@ -109,30 +127,24 @@ $titleBackground: $drogueYellowDarker;
   --r-selection-background-color: #{$selectionBackgroundColor};
 }
 
-.reveal h2,
-.reveal section.yellow h2
-{
-  background: $drogueYellowDarker;
-  outline: 1rem solid $drogueYellowDarker;
-}
-
-.reveal section.red h2 {
-  background: $drogueRedDarker;
-  outline: 1rem solid $drogueRedDarker;
-}
-
-.reveal section.blue h2 {
-  background: $drogueBlueDarker;
-  outline: 1rem solid $drogueBlueDarker;
+.reveal h2 {
+  background: var(--drogue-background-color);
+  padding: .33em;
 }
 
 .reveal .slide-content {
   padding-top: 1rem;
 }
 
+.reveal .slide-content:first-child {
+  padding-top: 0;
+}
+
 .reveal .slides section {
   text-align: start;
 }
+
+// quote
 
 .reveal .attribution {
   text-align: end;
@@ -143,11 +155,15 @@ $titleBackground: $drogueYellowDarker;
   font-style: italic;
 }
 
+// code
+
 .reveal .listingblock .title {
   margin-left: 50px;
   font-style: italic;
   font-size: smaller;
 }
+
+// image
 
 .reveal .imageblock + .title {
   margin-top: -30px;
@@ -155,13 +171,55 @@ $titleBackground: $drogueYellowDarker;
   font-size: smaller;
 }
 
+// callouts
+
+.reveal .colist table {
+  margin: .5em 0 0;
+  font-size: 66%;
+}
+
+// helpers
+
 .reveal section.smaller div.slide-content {
   font-size: 80%;
+}
+
+.reveal section.hcenter {
+  text-align: center;
+}
+
+.reveal section div.slide-content > div.center {
+  text-align: center;
+}
+
+.reveal section div.slide-content > div.gutter {
+  padding: 5rem;
+}
+
+.reveal section div.slide-content > div.p-x {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.reveal section div.slide-content > div.p-y {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.reveal section .stretch.vcenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 // Theme template ------------------------------
 @import "../node_modules/reveal.js/css/theme/template/theme";
 // ---------------------------------------------
+
+.reveal pre code {
+  max-height: unset;
+  padding: 1rem 0;
+}
 
 .reveal .admonitionblock > table {
   border: none;
@@ -172,20 +230,34 @@ $titleBackground: $drogueYellowDarker;
   margin-left: 4rem;
   border: none;
   border-left: 10px solid;
+  border-color: var(--drogue-accent-color);
   padding: 2rem 4rem;
   background: #ccc;
   box-shadow: none;
 }
 
-.reveal blockquote,
-.reveal section.yellow blockquote {
-  border-color: $drogueYellow;
+.reveal .listingblock {
+  margin-left: 0;
+  border: none;
+  border-left: 10px solid;
+  border-color: var(--drogue-accent-color);
+  background: #272822; // align with hjs theme
 }
 
-.reveal section.red blockquote {
-  border-color: $drogueRed;
+.reveal .listingblock code {
+  height: auto;
+  margin: 1rem;
 }
 
-.reveal section.blue blockquote {
-  border-color: $drogueBlue;
+.reveal .listingblock pre {
+  margin: 0;
+  box-shadow: none;
+}
+
+.reveal .footnotes {
+  margin-top: unset;
+  position: fixed;
+  // align bottom to bottom of slide
+  top: var(--slide-height);
+  transform: translateY(-100%);
 }

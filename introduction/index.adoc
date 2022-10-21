@@ -10,10 +10,9 @@
 :highlightjsdir: highlightjs
 :experimental: true
 
-[.center]
-== Note
+:commondir: ../common
 
-NOTE: This presentation uses vertical slides to group content. Be sure to use kbd:[space] or kbd:[n] to advance to the next slide. Using kbd:[←] or kbd:[→] will skip all vertical slides.
+include::{commondir}/vertical-slides.adoc[]
 
 [.columns]
 == What is Drogue IoT?
@@ -177,30 +176,7 @@ We have a public sandbox: link:https://sandbox.drogue.cloud[]
 
 Or try a local deployment.
 
-[.columns.smaller]
-== Links
-
-[.column]
---
-**Project**
-
-* link:https://drogue.io[]
-* link:https://blog.drogue.io[]
-* link:https://book.drogue.io[]
-* link:https://github.com/drogue-iot[]
---
-
-[.column]
---
-**Contact**
-
-* link:https://twitter.com/DrogueIoT[@DrogueIoT]
-* link:https://matrix.to/#/#drogue-iot:matrix.org[#drogue-iot:matrix.org]
-
-**Getting started**
-
-* link:https://sandbox.drogue.cloud[]
---
+include::{commondir}/links.adoc[]
 
 [.full]
 == Thank you!

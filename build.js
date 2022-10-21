@@ -5,7 +5,12 @@ asciidoctorRevealjs.register()
 const fs = require("fs");
 const fse = require("fs-extra");
 
-const presentations = ["index", "template-test", "introduction"];
+const presentations = [
+    "index",
+    "template-test",
+    "introduction",
+    "drogue-cloud-introduction"
+];
 
 function copyOptionally(src, dest) {
     if (fs.existsSync(src)) {
@@ -15,12 +20,13 @@ function copyOptionally(src, dest) {
 
 presentations.forEach(doc => {
     asciidoctor.convertFile(`${doc}/index.adoc`, {
-        safe: 'safe',
+        safe: 'unsafe',
         backend: 'revealjs',
         to_dir: `staging/${doc}`,
         mkdirs: true,
     });
 
+    copyOptionally(`common/images`, `staging/${doc}/images`);
     copyOptionally(`${doc}/images`, `staging/${doc}/images`);
 
     // copy all the base resource, duplicating the content, but keeping each presentation independent

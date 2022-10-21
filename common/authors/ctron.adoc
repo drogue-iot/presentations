@@ -1,0 +1,14 @@
+[.columns.smaller]
+== Jens Reimann
+
+[.column]
+--
+* Software Engineer at Red Hat, Middleware
+* Working on cloud side, IoT topics
+* Involved in Eclipse IoT PMC & Working Group
+
+icon:twitter[] @ctron icon:github[] ctron
+--
+
+[.column]
+image::../images/JensReimann.jpg[]

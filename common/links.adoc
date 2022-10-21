@@ -1,0 +1,24 @@
+[.columns.smaller]
+== Links
+
+[.column]
+--
+**Project**
+
+* link:https://drogue.io[]
+* link:https://blog.drogue.io[]
+* link:https://book.drogue.io[]
+* link:https://github.com/drogue-iot[]
+--
+
+[.column]
+--
+**Contact**
+
+* link:https://twitter.com/DrogueIoT[@DrogueIoT]
+* link:https://matrix.to/#/#drogue-iot:matrix.org[#drogue-iot:matrix.org]
+
+**Getting started**
+
+* link:https://sandbox.drogue.cloud[]
+--

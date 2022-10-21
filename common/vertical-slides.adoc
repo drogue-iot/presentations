@@ -1,0 +1,4 @@
+[.center]
+== Note
+
+NOTE: This presentation uses vertical slides to group content. Be sure to use kbd:[space] or kbd:[n] to advance to the next slide. Using kbd:[←] or kbd:[→] will skip all vertical slides.
