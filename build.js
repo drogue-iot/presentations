@@ -26,6 +26,8 @@ function copyOptionally(src, dest) {
 function build(doc) {
     console.log(`Building: ${doc}`);
 
+    const docinfodir = path.resolve(__dirname, "common/docinfo");
+
     const out = asciidoctor.convertFile(`${doc}/index.adoc`, {
         safe: 'unsafe',
         backend: 'revealjs',
@@ -33,6 +35,7 @@ function build(doc) {
         mkdirs: true,
         attributes: {
             "data-uri": true,
+            "docinfodir": docinfodir,
         }
     });
 

@@ -8,3 +8,4 @@
 :source-highlighter: highlightjs
 :highlightjs-languages: rust, yaml, json, javascript, java, shell
 :highlightjsdir: highlightjs
+:docinfo: shared
