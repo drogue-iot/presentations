@@ -17,10 +17,17 @@ Clicking on the links will take you to them.
 
 == Drogue IoT: Introduction
 
-An introduction to Drogue IoT.
+An introduction to the Drogue IoT project.
 
 [.text-right]
 link:introduction/[Start presentation,role=external,window=_blank]
+
+== Drogue Cloud: Introduction
+
+An introduction focused on the cloud side of Drogue IoT.
+
+[.text-right]
+link:drogue-cloud-introduction/[Start presentation,role=external,window=_blank]
 
 == Template example
 
