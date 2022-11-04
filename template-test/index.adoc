@@ -1,13 +1,10 @@
 = Drogue IoT: Testing the template
-:icons: font
-:imagesdir: images
-:source-highlighter: highlightjs
-:revealjsdir: revealjs
-:revealjs_center: false
-:revealjs_history: true
-:revealjs_customtheme: themes/drogue.css
-:highlightjs-languages: rust, yaml, json
-:highlightjsdir: highlightjs
+:commondir: ../common
+include::{commondir}/attributes.adoc[]
+
+ifndef::imagesdir[]
+:imagesdir: ../images
+endif::[]
 
 == Standard slide
 
@@ -54,17 +51,17 @@ fn main() {
 
 === Image
 
-image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat]
+image::template-test/michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat]
 
 === Image (caption)
 
 .Cat picture (50%)
-image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat,50%]
+image::template-test/michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat,50%]
 
 [%notitle]
 === Image (no-title)
 
-image::michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat]
+image::template-test/michael-sum-LEpfefQf4rU-unsplash.jpg[Picture of a cat]
 
 === Footnotes
 

@@ -1,0 +1,10 @@
+:icons: font
+:favicon: https://www.drogue.io/favicon.svg
+:experimental: true
+:revealjsdir: revealjs
+:revealjs_center: false
+:revealjs_history: true
+:revealjs_customtheme: themes/drogue.css
+:source-highlighter: highlightjs
+:highlightjs-languages: rust, yaml, json, javascript, java, shell
+:highlightjsdir: highlightjs

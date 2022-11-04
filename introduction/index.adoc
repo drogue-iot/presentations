@@ -1,16 +1,10 @@
 = Drogue IoT: An introduction
-:icons: font
-:imagesdir: images
-:source-highlighter: highlightjs
-:revealjsdir: revealjs
-:revealjs_center: false
-:revealjs_history: true
-:revealjs_customtheme: themes/drogue.css
-:highlightjs-languages: rust, yaml, json
-:highlightjsdir: highlightjs
-:experimental: true
-
 :commondir: ../common
+include::{commondir}/attributes.adoc[]
+
+ifndef::imagesdir[]
+:imagesdir: ../images
+endif::[]
 
 include::{commondir}/vertical-slides.adoc[]
 
@@ -81,7 +75,7 @@ Distribution of tools and examples for building embedded IoT applications.
 
 [.column]
 --
-image:microcontroller.jpg[]
+image:introduction/microcontroller.jpg[]
 --
 
 [.blue.smaller]
@@ -108,7 +102,7 @@ image:microcontroller.jpg[]
 [.blue.text-center]
 === Architecture
 
-image:device_arch.png[]
+image:introduction/device_arch.png[]
 
 [.red]
 == Drogue Cloud

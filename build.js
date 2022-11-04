@@ -24,15 +24,17 @@ function copyOptionally(src, dest) {
 }
 
 function build(doc) {
-    asciidoctor.convertFile(`${doc}/index.adoc`, {
+    console.log(`Building: ${doc}`);
+
+    const out = asciidoctor.convertFile(`${doc}/index.adoc`, {
         safe: 'unsafe',
         backend: 'revealjs',
         to_dir: `staging/${doc}`,
         mkdirs: true,
+        attributes: {
+            "data-uri": true,
+        }
     });
-
-    copyOptionally(`common/images`, `staging/${doc}/images`);
-    copyOptionally(`${doc}/images`, `staging/${doc}/images`);
 
     // copy all the base resource, duplicating the content, but keeping each presentation independent
     copyOptionally(`assets`, `staging/${doc}/assets`);
@@ -42,5 +44,6 @@ function build(doc) {
     copyOptionally(`node_modules/@highlightjs/cdn-assets`, `staging/${doc}/highlightjs`);
 }
 
+copyOptionally(`images`, `staging/images`); // TODO: check if we can use it, or use data-uris
 presentations.forEach(doc => build(doc));
 talks.forEach(doc => build(doc));

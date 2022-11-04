@@ -1,15 +1,10 @@
 = Drogue IoT: The cloud side of things.
-:icons: font
-:experimental: true
-:revealjsdir: revealjs
-:revealjs_center: false
-:revealjs_history: true
-:revealjs_customtheme: themes/drogue.css
-:source-highlighter: highlightjs
-:highlightjs-languages: rust, yaml, json, javascript, java, shell
-:highlightjsdir: highlightjs
-:imagesdir: images
 :commondir: ../common
+include::{commondir}/attributes.adoc[]
+
+ifndef::imagesdir[]
+:imagesdir: ../images
+endif::[]
 
 include::{commondir}/vertical-slides.adoc[]
 include::{commondir}/presenter.adoc[]
@@ -35,7 +30,7 @@ Today, the focus is on Drogue Cloud.
 Connect cloud side applications, with far edge devices.
 
 [.center.gutter]
-image::drogue-iot-mission.svg[]
+image::drogue-cloud-introduction/drogue-iot-mission.svg[]
 
 === How?
 
@@ -89,12 +84,12 @@ Let's take a closer look.
 * Telemetry is the dominant direction of data
 
 [.column]
-image::telemetry-vs-commands.svg[height=75%, role="center"]
+image::drogue-cloud-introduction/telemetry-vs-commands.svg[height=75%, role="center"]
 
 [%notitle,role=center]
 === Diagram
 
-image::drogue-cloud-architecture.svg[role="stretch center"]
+image::drogue-cloud-introduction/drogue-cloud-architecture.svg[role="stretch center"]
 
 [.notes]
 --
@@ -297,13 +292,13 @@ mqtt pub -h mqtt.sandbox.drogue.cloud -p 8883 -s \
 
 [.column]
 --
-image::sandbox0.png[]
-image::sandbox1.png[]
+image::drogue-cloud-introduction/sandbox0.png[]
+image::drogue-cloud-introduction/sandbox1.png[]
 --
 [.column]
 --
-image::sandbox2.png[]
-image::sandbox3.png[]
+image::drogue-cloud-introduction/sandbox2.png[]
+image::drogue-cloud-introduction/sandbox3.png[]
 --
 
 [.blue]
@@ -372,7 +367,7 @@ And with that, we can build more.
 [%notitle.center]
 === Recap
 
-image::drogue-cloud-overview.svg[]
+image::drogue-cloud-introduction/drogue-cloud-overview.svg[]
 
 include::{commondir}/links.adoc[]
 
