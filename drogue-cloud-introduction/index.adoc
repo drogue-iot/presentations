@@ -98,12 +98,23 @@ image::drogue-cloud-architecture.svg[role="stretch center"]
 ** Getting notified on demand
 --
 
+[.blue.columns]
+=== Directions
+
+[.column]
+* *Telemetry*: device-to-cloud, northbound, upstream
+* *Commands*: cloud-to-device, southbound, downstream
+* Telemetry is the dominant direction of data
+
+[.column]
+image::telemetry-vs-commands.svg[height=75%, role="center"]
+
 [.blue]
 === Events
 
 * Devices and cloud exchange events
-* The protocol doesn't matter, the payload does
-* Events are normalized, payload is not
+* Protocols aren't too important, the payload is
+* Protocols are normalized, payload is not
 [%step]
 ** At least on this level
 
@@ -122,8 +133,13 @@ The payload is just forwarded "as is".
 [.column.p-x]
 image::logos/cloudevents-icon-color.png[]
 
-[.blue]
+[%notitle.center]
 === Cloud Events
+
+Headers + Payload = Cloud Event
+
+[.blue]
+=== When using JSON
 
 [source,json]
 ----
@@ -142,7 +158,7 @@ image::logos/cloudevents-icon-color.png[]
 <4> The actual payload
 
 [%notitle.center.blue.columns]
-=== Cloud Events Mapping
+=== When using HTTP
 
 [.column]
 --
@@ -177,17 +193,6 @@ Content-Type: application/json; charset=utf-8
 }
 ----
 --
-
-[.blue.columns]
-=== Directions
-
-[.column]
-* *Telemetry*: device-to-cloud, northbound, upstream
-* *Commands*: cloud-to-device, southbound, downstream
-* Telemetry is the dominant direction of data
-
-[.column]
-image::telemetry-vs-commands.svg[height=75%, role="center"]
 
 [.red]
 == Examples
@@ -302,21 +307,21 @@ image::sandbox2.png[]
 image::sandbox3.png[]
 --
 
-[.red]
-=== There is more
+[.blue]
+== There is more
 
 * Event pre-processing
 * Gateway concept
 * Change events from the device registry
 * …
 
-[.red]
+[.blue]
 === Change events
 
 * When device configurations are created, changed, delete events get fired
 * You can act on them, operator style
 
-[.red]
+[.blue]
 === For example
 
 * Provision a new device in another system
@@ -358,11 +363,18 @@ And with that, we can build more.
 
 [.column]
 --
-+++ +++
++++  +++
 
 * API (REST and WebSocket)
 * Processing in JavaScript
 * OPC UA server of "things"
 --
 
+[%notitle.center]
+=== Recap
+
+image::drogue-cloud-overview.svg[]
+
 include::{commondir}/links.adoc[]
+
+include::{commondir}/fin.adoc[]

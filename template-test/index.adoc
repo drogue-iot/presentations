@@ -135,6 +135,13 @@ By default, text is aligned to the top of the slide. But you can also center it:
 
 Yes, this will also center the heading.
 
+=== Center Content
+
+[.stretch.vcenter]
+--
+You can also just center the content. But for this, you must also stretch the content.
+--
+
 [.full]
 == Thank you!
 
