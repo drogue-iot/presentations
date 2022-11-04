@@ -12,8 +12,7 @@
 :commondir: ../common
 
 include::{commondir}/vertical-slides.adoc[]
-
-// include::{commondir}/presenters/ctron.adoc[]
+include::{commondir}/presenter.adoc[]
 
 == Drogue IoT
 

@@ -4,6 +4,8 @@ asciidoctorRevealjs.register()
 
 const fs = require("fs");
 const fse = require("fs-extra");
+const glob = require("glob");
+const path = require("path");
 
 const presentations = [
     "index",
@@ -12,13 +14,16 @@ const presentations = [
     "drogue-cloud-introduction"
 ];
 
+const talks = glob.sync("talks/*/index.adoc")
+    .map(file => path.dirname(file));
+
 function copyOptionally(src, dest) {
     if (fs.existsSync(src)) {
         fse.copySync(src, dest, {overwrite: true});
     }
 }
 
-presentations.forEach(doc => {
+function build(doc) {
     asciidoctor.convertFile(`${doc}/index.adoc`, {
         safe: 'unsafe',
         backend: 'revealjs',
@@ -35,5 +40,7 @@ presentations.forEach(doc => {
     copyOptionally(`node_modules/reveal.js/dist`, `staging/${doc}/revealjs/dist`);
     copyOptionally(`node_modules/reveal.js/plugin`, `staging/${doc}/revealjs/plugin`);
     copyOptionally(`node_modules/@highlightjs/cdn-assets`, `staging/${doc}/highlightjs`);
+}
 
-})
+presentations.forEach(doc => build(doc));
+talks.forEach(doc => build(doc));

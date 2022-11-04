@@ -1,0 +1,3 @@
+ifdef::presenter[]
+include::{commondir}/presenters/{presenter}.adoc[]
+endif::[]

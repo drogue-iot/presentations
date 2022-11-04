@@ -1,0 +1,2 @@
+:presenter: ctron
+include::../../drogue-cloud-introduction/index.adoc[]
