@@ -1,10 +1,20 @@
 = Drogue IoT: An introduction
+
+// common metadata
+
 :commondir: ../common
 include::{commondir}/attributes.adoc[]
 
 ifndef::imagesdir[]
 :imagesdir: ../images
 endif::[]
+
+// custom metadata
+
+:description: An introduction to the Drogue IoT project.
+:keywords: iot, open source
+
+// start of presentation
 
 include::{commondir}/vertical-slides.adoc[]
 

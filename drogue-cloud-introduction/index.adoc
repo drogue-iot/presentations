@@ -1,10 +1,20 @@
 = Drogue IoT: The cloud side of things.
+
+// common metadata
+
 :commondir: ../common
 include::{commondir}/attributes.adoc[]
 
 ifndef::imagesdir[]
 :imagesdir: ../images
 endif::[]
+
+// custom metadata
+
+:description: An introduction to the cloud side of Drogue IoT.
+:keywords: iot, open source
+
+// start of presentation
 
 include::{commondir}/vertical-slides.adoc[]
 include::{commondir}/presenter.adoc[]
