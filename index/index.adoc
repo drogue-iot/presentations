@@ -24,7 +24,7 @@ link:introduction/[Start presentation,role=external,window=_blank]
 
 == Drogue Cloud: Introduction
 
-An introduction focused on the cloud side of Drogue IoT.
+An introduction, focused on the cloud side of Drogue IoT.
 
 [.text-right]
 link:drogue-cloud-introduction/[Start presentation,role=external,window=_blank]
