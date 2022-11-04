@@ -81,6 +81,17 @@ Make it easy to connect cloud side applications with far edge devices.
 
 Let's take a closer look.
 
+[.blue.columns]
+=== Directions
+
+[.column]
+* *Telemetry*: device-to-cloud, northbound, upstream
+* *Commands*: cloud-to-device, southbound, downstream
+* Telemetry is the dominant direction of data
+
+[.column]
+image::telemetry-vs-commands.svg[height=75%, role="center"]
+
 [%notitle,role=center]
 === Diagram
 
@@ -97,17 +108,6 @@ image::drogue-cloud-architecture.svg[role="stretch center"]
 ** And subscribe to data
 ** Getting notified on demand
 --
-
-[.blue.columns]
-=== Directions
-
-[.column]
-* *Telemetry*: device-to-cloud, northbound, upstream
-* *Commands*: cloud-to-device, southbound, downstream
-* Telemetry is the dominant direction of data
-
-[.column]
-image::telemetry-vs-commands.svg[height=75%, role="center"]
 
 [.blue]
 === Events
